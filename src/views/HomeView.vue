@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container my-3">
     <h1 class="text-primary">Bienvenido a ZenaDesk</h1>
     <router-link to="/products" class="btn btn-success">Ir a Productos</router-link>
   </div>
