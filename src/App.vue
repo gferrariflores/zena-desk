@@ -28,7 +28,7 @@ export default {
       if (data.error) {
         console.error(data.error);
       } else {
-        console.log(data); // Handle and display data in your component
+        console.log('data',data); // Handle and display data in your component
       }
     });
   }

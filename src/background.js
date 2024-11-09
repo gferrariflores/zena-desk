@@ -6,7 +6,7 @@ const installExtension = require('electron-devtools-installer').default;
 const VUEJS3_DEVTOOLS = require('electron-devtools-installer').VUEJS3_DEVTOOLS;
 
 // Import database functions
-const { fetchProducts, createProductTable, addProduct } = require('./database');
+const { fetchProducts, createProductTable, addProduct, syncProducts } = require('./database');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -48,6 +48,12 @@ ipcMain.on('add-product', (event, product) => {
   addProduct(name, price, (success) => {
     event.reply('product-added', success);
   });
+});
+
+// Listen for the sync-products IPC event
+ipcMain.on('sync-products', (event, products) => {
+  syncProducts(products); // Sync the products to the local database
+  event.reply('products-synced', true); // Send a reply back to the renderer process
 });
 
 app.on('ready', async () => {
