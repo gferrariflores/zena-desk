@@ -16,21 +16,23 @@
 
 <script>
 
-const { ipcRenderer } = require('electron');
+//const { ipcRenderer } = require('electron');
 
 export default {
   name: 'App',
   mounted() {
-    ipcRenderer.send('fetch-products'); // Request data from the main process
+    // ipcRenderer.send('fetch-products'); // Request data from the main process
   },
   created() {
+    /*
     ipcRenderer.on('products', (event, data) => {
       if (data.error) {
         console.error(data.error);
       } else {
-        console.log('data',data); // Handle and display data in your component
+        // console.log('products data: ',data); // Handle and display data in your component
       }
     });
+    **/
   }
 }
 </script>
